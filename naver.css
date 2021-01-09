@@ -1,0 +1,236 @@
+/*cascading style sheet(캐스케이딩 스타일 시트) 의 약자 = css*/
+/*선택자(selctor) = html 의 태그를 선택하는것*/
+/*display : inline; 이랑 display: inline-block;의 차이*/
+/*inline-block 은 width(폭) 과 height(높이) 를 지정할수잇지만 inline 은 그 차지하는 공간만 설정width height높이 설정불가임*/
+
+
+* { /*모든태그에*/
+    box-sizing: border-box; /*계산을 컨텐츠기반으로 하는게 아니라 보더 기준으로 계산하는 명령어*/
+}
+
+html, body {
+    margin : 0; /*기본웹사이트 body에 마진 8px가 있는데 그걸없애줌(보더테두리 밖 공간)*/
+    padding: 0;
+}
+
+#fixed {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50px;/*테두리가 둥그래짐*/
+}
+/*blind 에서 . 은 클래스를 의미함*/
+.blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+
+
+.center-align {
+    margin: 0 auto;
+    width: 1080px;
+}
+
+#header-center,div#GMdong{ /*divid에있는 태그에 css설정을 적용, 여러태그 가능함 div태그 생략하고 #만 적어도됨, 단 div가 아닌애들은 꼭 적어주기*/
+margin: 0 auto; /*가운데정렬을하고*/
+width: 1130px; /*너비는 1130으로 해라*/
+}
+
+#header-search a {
+    text-decoration: none;
+}
+
+
+#header-search h1 { /*그외 는 <자손> 서로 호출방법이 다름 하지만 자식도 거의 이런식으로 자손부르는방식으로 호출함*/
+    width: 198px;
+    height: 48px;
+    display: inline-block; /*가로로 100%차지하는 자기(눈에안보이는)공간을 줄여준다*/
+/*  background-image: url(./sp-serach.png);
+    background-position: -4px -10px; !*이미지의 위치조절 오른쪽으로 4px 위쪽으로 10px 옮기기 *!
+            !*(왼쪽 +면 오른쪽)*!  !*(위쪽, +면아래쪽*!
+    background-repeat: no-repeat; 이미지 height !*사이즈가 너무 크면 이미지가 반복되어 나오는걸 없앰*!
+*/
+    background: url(./sp-serach2.png) -4px -10px no-repeat;
+    vertical-align: middle;
+    /*HTML/CSS 무료 강좌 3-2. 백그라운드와 박스 모델 에 크기 쉽게 조정하는법 나와있음 참고하셈*/
+    position: relative; /*픽셀만큼 포지션을 조정할수잇음*/
+    top: 4px;
+    right: -9px;
+}
+
+/*
+#header-search > h1 { !*바로안에 들어있는 존재는 <자식>*!
+    width: 280px;
+}*/
+
+
+#header-search h1 span {
+    display: none;
+}
+
+#header-search h2 { /*검색창 h2태그는 안보이도록 수정*/
+    display: none;
+}
+
+
+#header-search fieldset {
+    margin-left: 20px;
+/*  paddintg-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 0px;
+*/
+    padding: 12px 0 12px 10px; /*위 오른쪽 아래쪽 왼쪽(시계방향)*/
+    width: 521px;
+    height: 51px;
+    display: inline-block;
+    border: 2px solid #03cf5d; /*보더굶기 2px , 상자 테두리 색깔설정 RGB, hex표기법,*/
+    vertical-align: middle;
+    position: relative; /*자기자신의 위치에 기반해서 움직이는 포지션종류*/
+
+}
+
+#header-search fieldset input {
+    border: none; /*검색창안 인풋(글자적는곳) 테두리 없애기*/
+    padding: 0;
+    outline: none; /*글자입력할떄 input 테두리없애기*/
+    vertical-align: top;
+    width: 440px;
+    height: 22px;
+}
+#header-search fieldset  button {
+    width: 49px;
+    height: 49px;
+    border: none;
+    padding: 0;
+    background: #03cf5d;
+    position: absolute; /*html의 화면에 기반해서 움직이는 포지션종류*/
+    right: -2px;
+    top: -1px;
+
+}
+
+#search-image {
+    background-image: url(./sp_search3.png);
+    background-position: -4px -60px;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    display: inline-block; /*spen텍스트코드에 컨텐츠를 생성해주기*/
+    margin: 14px; /*가운데 정렬해주기*/
+}
+
+nav ul { /*리스트*/
+    margin: 0; /*마진 패딩 없애는 구문*/
+    padding: 0;
+    list-stlye: none; /*리스트옆에 점 뺴는 구문*/
+}
+
+nav li { /*리스트목록들 동메달2개 nav와 li (css 우선순위) */
+    display: inline-block; /*가로를 쭉 차지하지않게 하기*/
+
+}
+
+nav li span:first-child{ /*네브span 태그들의 공통점을 모아 이렇게 코딩하면 줄수가 줄어듬*/
+    height: 16px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
+    padding-left: 30px; /*가로간격을 34px만큼 넒혀준다*/
+    margin-left: 9px; /*테투리 밖 간격을 9px 넒혀준다*/
+}
+
+nav li:first-child span:first-child{ /**네브태크 첫번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+/*    동메달 1(Nav), 은메달 2개(li:frist-child) , (span:firest-child) (css우선순위)*/
+    width: 25px;
+    background-position: 0 -285px;
+    margin-left: 0;
+}
+
+/*위의 두개중 first-child 의 margin은 left: 0만이 적용이됨 , 그이유는 css 우선순위 가있기떄문임,*/
+/*!important > inline style attribute > id > class, 다른 attribute,
+수도클래스(:first-child같은 것) > tag element, 수도엘레먼트(::before같은 것) 순으로 우선순위가 높습니다.*/
+/*css는 뒤에있는게 먼저적용이되고 > important > inline > id > class > 다른 attribute > 그다음은 갯수싸움으로 이김 */
+
+nav li:nth-child(2) span:first-child { /**네브태크 두번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 27px;
+    background-position: -279px -52px;
+}
+
+nav li:nth-child(3) span:first-child { /**네브태크 3번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 40px;
+    background-position: -100px -182px;
+}
+
+nav li:nth-child(4) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 40px;
+    background-position: -100px -156px;
+}
+
+nav li:nth-child(5) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 29px;
+    background-position: -277px -156px;
+}
+
+nav li:nth-child(6) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 40px;
+    background-position: -64px -285px;
+}
+
+nav li:nth-child(7) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 34px;
+    background-position: -124px -131px;
+}
+
+nav li:nth-child(8) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 39px;
+    background-position: -273px -207px;
+}
+
+nav li:nth-child(9) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 32px;
+    background-position: -127px -103px;
+}
+
+nav li:nth-child(10) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 38px;
+    background-position: -32px -259px;
+}
+
+nav li:nth-child(11) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 40px;
+    background-position: -151px -155px;
+}
+
+nav li:nth-child(12) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 35px;
+    background-position: -273px -129px;
+}
+
+nav li:nth-child(13) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 32px;
+    background-position: -232px -232px;
+}
+
+nav li:nth-child(14) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 35px;
+    background-position: -68px -258px;
+}
+
+nav li:nth-child(15) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 25px;
+    background-position: -136px -77px;
+}
+
+nav li:nth-child(16) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+    width: 35px;
+    background-position: -279px 0px;
+}

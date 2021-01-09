@@ -1,0 +1,119 @@
+<!--선택 영역 블록 주석(comment)으로 Ctrl + Shift + /-->
+<!--블록 및 한줄을 한줄 주석(comment)으로  설정하기 Ctrl + /-->
+<!--한줄 복사 붙여넣기 Ctri + D-->
+<!--개발자도구(F12)에서 마우스가 가르키는 이미지,또는 탭을 코드작성한데가 어디인지 보여주기 Ctrl + shift + c-->
+<!--초록색줄은 속성(attribute)입니다-->
+<!--legend(범례 : 책의 첫머리에 그 책의 내용이나 쓰는 방법 따위에 관한 참고 사항을 설명한 글.)-->
+<!--header > 가장 첫부분, 눈에띄는부분 가장위에 있는부분-->
+<!--nav > 네비게이션메뉴, 메뉴들  이 있는부분,-->
+<!--main > 중간의 통쨰부분이 메인컨텐츠 가 있는부분,-->
+<!--footer > 공지사항부분, 회사소개,, 부가적인 기능이 있는부분,-->
+<!--href(위치)-->
+<!--class name은 어디든 여러분 달수있지만 div name 은 그 태그만 달수잇음 -->
+<!-- <input type="checkboc" /> 체크할수잇는 박스생성-->
+<!--<input type="radio" name="group" /> 라디오박스생성(그룹화하면  그 그룹중 하나만 선택하게 할수잇음) -->
+<!--<input type="radio" name="group" />-->
+<!--<textarea></textarea> 상자안에 글자넣을수잇게함 (상자크기 자유 롭게 조정가능)-->
+<!--Ctrl + shift + r 단어 바꾸기 -->
+<!--특정단어 드래그 후 ait + j 하면 그 특정단어만 골라서 순차적으로 선택됨 -->
+
+<!doctype HTML>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" /> <!--utf-8 한글코드 설정, 이게없으면 한국어가 꺠질수도잇음-->
+    <title>재동이의네이버 </title> <!--홈페이지 상단 제목 설정-->
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?1" /> <!-- 네이버 아이콘 생성-->
+    <linK rel="stylesheet" href="./naver.css"> <!--html에게 css 존재를 알리는 명령문-->
+  </head>
+  <body>
+  <header>
+    <div id="fixed">고정</div>
+    <div class="center-align">
+      <!--css은 항상 속성명 : 속성값;(속성여러개일경우 세미콜론으로 구분) 의 형태를 취하고잇음-->
+      <!--어떤구역인지 알려주고 틀을잡는역활함... header 태그는  div id="header"태그 랑 같다.-->
+      <!--디자인 설정방법 : <div 속성명 속성값; 속성명2: 속성값2> </div>-->
+      <!--html파일안에 디자인을      하는스타일을 인라인 스타일 이라고 함 -->
+      <span> <!--text 같은 div는 div대신 spen 으로 씀-->
+        <span style="display: inline-block">네이버를 시작페이지로</span>
+        <span style="display: inline-block">쥬니버네이버</span>
+        <span style="display: inline-block">해피빈</span>
+      </span>
+      <div id = "header-search">
+        <a href="https://www.naver.com">
+          <h1>
+            <span>네이버</span>  <!--특정 주소로 가는 밑줄 생성-->
+          </h1>
+        </a>
+        <h2 class="blind">검색창</h2>
+        <fieldset> <!--상자모양 생성-->
+          <legend class="blind">검 색</legend>  <!--상자모양 안에 "검색" 이라는 표시 달기-->
+          <input /> <!--상자안에 글자를 넣을수있게함-->
+          <button>
+            <span class="blind">검색</span>
+            <span id="search-image"></span>
+          </button> <!--버튼누르는 상자 생성-->
+        </fieldset>
+      </div>
+    </div>
+  </header>
+  <!--    <ol> ordered list 숫자 1. 2. 3. ... 이렇게 정렬하는 리스트-->
+  <nav> <!--어떤구역인지 알려주고 틀을잡는역활함... nav 태그는  div id="nav"태그 랑 같다.-->
+     <div class="center-align">
+        <ul> <!--unordered list--> <!--여기서 부터 리스트야-->
+          <li>
+            <a href="https://mail.naver.com">
+              <span></span>
+              <span class="blind">메일</span>
+            </a>
+          </li>
+          <li><a href="https://section.cafe.naver.com/m"><span></span><span class="blind">카페</span></a></li>
+          <li><a href="https://section.blog.naver.com/BlogHome.nhn"><span></span><span class="blind">블로그</span></a></li>
+          <li><a href="https://kin.naver.com/"><span></span><span class="blind">지식인</span></a></li>
+          <li><a href="https://shopping.naver.com/"><span></span><span class="blind">쇼핑</span></a></li>
+          <li><a href="https://pay.naver.com"><span></span><span class="blind">Pay</span></a></li>
+          <li><a href="https://tv.naver.com/"><span></span><span class="blind">TV</span></a></li>
+          <li><a href="https://dict.naver.com/"><span></span><span class="blind">사전</span></a></li>
+          <li><a href="https://news.naver.com/"><span></span><span class="blind">뉴스</span></a></li>
+          <li><a href="https://finance.naver.com/"><span></span><span class="blind">증권</span></a></li>
+          <li><a href="https://land.naver.com/"><span></span><span class="blind">부동산</span></a></li>
+          <li><a href="https://map.naver.com/v5/m"><span></span><span class="blind">지도</span></a></li>
+          <li><a href="https://movie.naver.com/"><span></span><span class="blind">영화</span></a></li>
+          <li><a href="https://vibe.naver.com/"><span></span><span class="blind">뮤직</span></a></li>
+          <li><a href="https://book.naver.com/"><span></span><span class="blind">책</span></a></li>
+          <li><a href="https://comic.naver.com/index.nhn"><span></span><span class="blind">웹툰</span></a></li>
+        </ul>
+     </div>
+  </nav>
+  <main> <!--어떤구역인지 알려주고 틀을잡는역활함.. main 태그는  div id="main"태그 랑 같다.-->
+    <h2>실시간 검색어</h2>
+    <h3>로그인</h3>
+    <h3>뉴스</h3>
+    <h3>연합뉴스</h3>
+    <ol>
+      <li> [긴급] 문재인 대통령 청와대에서 사망.. 사태 파악 나서</li>
+      <li> [속보] 재동이는 지금 일본에 거주중.. 환송 어덯게 하나</li>
+    </ol>
+    <h3>언론사목록</h3>
+    <ul>
+      <li><img src="./kbs뉴스.png" alt="kbs뉴스"></li>
+      <li><img src="./sbs뉴스.png" alt="sbs뉴스"></li>
+      <li><img src="./머니투데이.gif" alt="머니투데이"></li>
+    </ul>
+    <b>굶은글씨</b>
+    <span>얆은글씨</span>
+    <h3>법률</h3>
+    <h3>쇼핑</h3>
+    <h3>쇼핑</h3>
+    <h6>쇼핑</h6>
+    <h6>쇼핑</h6>
+    <h6>쇼핑</h6>
+    <h6>쇼핑</h6>
+  </main>
+  <footer> <!--어떤구역인지 알려주고 틀을잡는역활함... footer 태그는  div id="footer"태그 랑 같다.-->
+    <div>공지사항</div>
+    <div>회사소개</div>
+    <div>Creators</div>
+    <div>채용</div>
+  </footer>
+  </body>
+</html>
