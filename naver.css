@@ -10,7 +10,18 @@
 
 html, body {
     margin : 0; /*기본웹사이트 body에 마진 8px가 있는데 그걸없애줌(보더테두리 밖 공간)*/
-    padding: 0;
+    font-family: dotum,'돋움',helvetica,"Apple SD Gothic Neo",sans-serif; /*폰트설정, dotum이 없으면 그뒤 없으면 그뒤..순서로 적용됨*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+.inline-block {
+    display: inline-block;
+}
+
+.float-left {
+    float: left;
 }
 
 #fixed {
@@ -33,15 +44,36 @@ html, body {
     height: 1px;
 }
 
-
-.center-align {
-    margin: 0 auto;
-    width: 1080px;
+.relative {
+    position: relative;
 }
 
-#header-center,div#GMdong{ /*divid에있는 태그에 css설정을 적용, 여러태그 가능함 div태그 생략하고 #만 적어도됨, 단 div가 아닌애들은 꼭 적어주기*/
-margin: 0 auto; /*가운데정렬을하고*/
-width: 1130px; /*너비는 1130으로 해라*/
+.center-align {
+    margin: 0 auto;     /*부모 기준으로 가운데 정렬을 함*/
+    width: 1080px;
+/*    여기서 width은 적용이안됨, 같은 main 클래스에 div id ="main-centered" 가 더 우선순위가 높기떄문에*/
+}
+
+header {
+    height: 170px; /*네이버검색창과 메일 카페 블로그... 의 윗간격 설정*/
+}
+
+
+#header-top {
+    float: right;
+    margin-top: 8px;
+}
+
+#header-top span{
+    color: #888; /*두글자씩 같은경우에는 코드를줄일수있따 ex aabbcc > abc 888888 > 888*/
+    letter-spacing: -1px; /*레터스페이싱 글자사이간격*/
+    font-size: 11px; /*글자크기*/
+    line-height: 22px; /*글자라인세로크기간격 조절  너무작게하면 글자들이 세로로 겹침.*/
+}
+
+#header-search {
+    clear: both;
+    padding-top: 45px; /*네이버 검색창 패딩창 늘리기, (네이버시작페이지하고 검색창 간격 위로 조금 넒힐떄 썻음)*/
 }
 
 #header-search a {
@@ -58,12 +90,12 @@ width: 1130px; /*너비는 1130으로 해라*/
             !*(왼쪽 +면 오른쪽)*!  !*(위쪽, +면아래쪽*!
     background-repeat: no-repeat; 이미지 height !*사이즈가 너무 크면 이미지가 반복되어 나오는걸 없앰*!
 */
-    background: url(./sp-serach2.png) -4px -10px no-repeat;
+    background: url(./sp-serach2.png) 0px -3px no-repeat;
     vertical-align: middle;
     /*HTML/CSS 무료 강좌 3-2. 백그라운드와 박스 모델 에 크기 쉽게 조정하는법 나와있음 참고하셈*/
     position: relative; /*픽셀만큼 포지션을 조정할수잇음*/
-    top: 4px;
-    right: -9px;
+    top: -5px; /*재동이오류 : 네이버로고가 확대축소에 위치가 고정되는걸 고침*/
+    left: 1px;
 }
 
 /*
@@ -82,7 +114,7 @@ width: 1130px; /*너비는 1130으로 해라*/
 
 
 #header-search fieldset {
-    margin-left: 20px;
+    margin-left: 18px; /*재동이오류 : 네이버로고가 확대축소에 위치가 고정되는걸 고침 margin-left: 454px;*/
 /*  paddintg-top: 12px;
     padding-bottom: 12px;
     padding-left: 20px;
@@ -90,7 +122,7 @@ width: 1130px; /*너비는 1130으로 해라*/
 */
     padding: 12px 0 12px 10px; /*위 오른쪽 아래쪽 왼쪽(시계방향)*/
     width: 521px;
-    height: 51px;
+    height: 49px;
     display: inline-block;
     border: 2px solid #03cf5d; /*보더굶기 2px , 상자 테두리 색깔설정 RGB, hex표기법,*/
     vertical-align: middle;
@@ -98,13 +130,15 @@ width: 1130px; /*너비는 1130으로 해라*/
 
 }
 
+
+
 #header-search fieldset input {
     border: none; /*검색창안 인풋(글자적는곳) 테두리 없애기*/
     padding: 0;
     outline: none; /*글자입력할떄 input 테두리없애기*/
     vertical-align: top;
-    width: 440px;
-    height: 22px;
+    width: 395px;
+    height: 23px;
 }
 #header-search fieldset  button {
     width: 49px;
@@ -114,8 +148,30 @@ width: 1130px; /*너비는 1130으로 해라*/
     background: #03cf5d;
     position: absolute; /*html의 화면에 기반해서 움직이는 포지션종류*/
     right: -2px;
-    top: -1px;
+    top: -2px;
 
+}
+
+#search-keyboard {
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_search.svg);
+    background-repeat: no-repeat;
+    background-position: -33px -60px;
+    width: 19px;
+    height: 11px;
+    display: inline-block;
+    margin: 0 6px; /*(위 오른쪽 아래 왼쪽) 인데 여기서 아래 왼쪽은 같으니까 아래왼쪽은 생략된 상태로 적음*/
+    vertical-align: middle; /*인라인블록이나 인라인인 2개 가운데 정렬되게 함 나란히맞추기*/
+}
+
+#search-history {
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_search.svg);
+    background-repeat: no-repeat;
+    background-position: -87px -60px;
+    width: 9px;
+    height: 4px;
+    display: inline-block;
+    margin: 0 6px;
+    vertical-align: middle; /*줄여서 vm 치고 엔터해도 이코드가 나옴*/
 }
 
 #search-image {
@@ -128,9 +184,16 @@ width: 1130px; /*너비는 1130으로 해라*/
     margin: 14px; /*가운데 정렬해주기*/
 }
 
+nav {
+    height: 46px;
+    border-top: 1px solid #f1f3f6; /*네이버메뉴 윗부분 선그어주기 dotted dushed 도있음(점선)*/
+    border-bottom: 1px solid #d1d8e4;
+}
 nav ul { /*리스트*/
+    display: inline-block;
     margin: 0; /*마진 패딩 없애는 구문*/
-    padding: 0;
+    padding: 16px 0 0 4px;
+/*    재동이 오류: 패딩 이상하게 막 400px 주거나 그렇게 꼼쑤쓰니까 nav 태그가 이상하게된 그러지말것,*/
     list-stlye: none; /*리스트옆에 점 뺴는 구문*/
 }
 
@@ -144,7 +207,6 @@ nav li span:first-child{ /*네브span 태그들의 공통점을 모아 이렇게
     display: inline-block;
     background-repeat: no-repeat;
     background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
-    padding-left: 30px; /*가로간격을 34px만큼 넒혀준다*/
     margin-left: 9px; /*테투리 밖 간격을 9px 넒혀준다*/
 }
 
@@ -230,7 +292,211 @@ nav li:nth-child(15) span:first-child { /**네브태크 4번쨰자식인 리스�
     background-position: -136px -77px;
 }
 
-nav li:nth-child(16) span:first-child { /**네브태크 4번쨰자식인 리스트안에서 첫번쨰 자식인 spen 을 선택.**/
+nav li:nth-child(16) span:first-child {
     width: 35px;
     background-position: -279px 0px;
+}
+
+nav li.more:first-child span:first-child{
+    width: 55px;
+    background-position: 0 -104px;
+}
+
+.nav-divder { /*웹툰 옆에 구분선 설정*/
+    display: inline-block;
+    margin: 18px 16px 0;
+    width: 1px;
+    height: 14px;
+    background: #ebeef3;
+}
+
+#search-ranking {
+    position: absolute; /*동재 위치를 오른쪽 정렬했음*/
+    top: 16px;
+    right: 100px;
+}
+
+#rank-number { /*동재 옆에 있는 숫자 css*/
+    margin-top: -9px;
+    color: #00ab33;
+    font-size: 16px;
+}
+
+main {
+    background-color: #f2f4f7;
+    display: inline-block;
+    width: 100%;
+}
+
+#main-centered {
+    padding: 8px 10px; /*메인에 패딩을줘서 main 컨텐츠 테두리 밖에 살작 여유가공간이생김,*/
+    width: 1120px;
+}
+
+/*
+main h3:nth-child(3) { !*이건 h태그와 따른 잡태그도 순서를 봐서 css적용을 시킨것임.*!
+    background: red;
+}
+
+main h3:nth-of-type(2) { !*이건 h태그만비교하는것임*!
+    background: greenyellow;
+*/
+
+#main-first-block {
+    display: inline-block;
+    width: 100%;
+    float: left;
+    /*세로 문제의 인라인블록 은 vt , 가로문제의 인라인블록은 float : left 를 써야된다*/
+}
+
+
+#main-ad {
+    display: inline-block;
+    width: 740px;
+    height: 120px;
+    background: #556;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    float: left; /*이 플롯두개를 인식하기위해서 부모에 overflow: outo 아니면 인라인블럭width100%줘야됨*/
+}
+
+#main-login {
+    float: left; /*이 플롯두개를 인식하기위해서 부모에 overflow: outo 아니면 인라인블럭width100%줘야됨*/
+    display: inline-block;
+    width: 350px;
+    height: 120px;
+    vertical-align: top; /*로그인과 main-ad과 가로 대칭이 안되는데 이코드가 위로 끌어다 올려줌,*/
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+
+#main-second-block .float-left:first-child {
+    display: inline-block;
+    vertical-align: top;
+    width: 740px;
+}
+
+#main-second-block .float-left:last-child {
+    margin-right: 8px;
+    width: 332px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#main-ytn {
+    display: inline-block;
+    width: 740px;
+    height: 46px;
+    background-color: white;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#main-ytn h3,
+#main-ytn ol {
+    display: inline-block;
+}
+
+
+
+#main-newsstand {
+    display: inline-block;
+    width: 740px;
+    height: 246px;
+    background-color: white;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#main-newsstand h3 {
+    height: 45px;
+    border-bottom: 1px solid #d1d8e4;
+}
+
+#main-newsstand ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none; /*점사라지는거*/
+}
+
+#main-newsstand li { /*과학동아 한국일보 매일경제 들 */
+    float: left;
+    width: calc(100% / 6); /* 123px으로 햇을경우 #main-centered 태그의 740width 을 6등분하면 123.333 되서 오른쪽끝에빈공간이 살짝남는데 그걸 calc(칼크)를 써서 딱 6등분으로 해줌*/
+/*          슬래시slash(/ < 의 이름) 띄어쓰세요 칼크쓸떄   */
+    height: 67px;
+    border-bottom: 1px solid #f1f3f6;
+    border-right: 1px solid #f1f3f6;
+    text-align: center; /*부모가 자식한테 가운데정렬*/
+}
+
+#main-newsstand li img { /*부모안에 들어있는 이미지*/
+    position: relative; /*자기현재위치에서 */
+    top: 50%; /*  50%내려옴*/
+    transform: translateY(-50%); /*이미지 위끝부분을 기준으로하기떄문에 더 내려와보임 그래서 다시 위로 올려주는 구문*/
+
+}
+#main-weather {
+    display: inline-block;
+    width: 350px;
+    height: 142px;
+    background-color: chartreuse;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+
+#main-second-ad {
+    display: inline-block;
+    width: 350px;
+    height: 150px;
+    background: #555;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+
+#main-category {
+    float: left;
+    width: 740px;
+    height: 837px;
+    margin-right: 8px;
+    background-color: rosybrown;
+}
+
+#main-shopping {
+    float: left;
+    width: 350px;
+    height: 837px;
+    background-color: aquamarine;
+}
+
+#main-shopping iframe {
+    height: 100%;
+    width: 100%;
+}
+
+
+#main-third-block, /*자식들이 float left하면 부모가 인식을못하게 떄문에 이렇게 디스플 width 100%하면 맞춰짐*/
+#main-fourth-block { /*이설정안하면 확대하거나 축소될떄 상자들이 이상한데로 도망가거나함*/
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 8px;
+    vertical-align: top;
+}
+
+#main-event {
+    float: left;
+    width: 740px;
+    height: 130px;
+    margin-right: 7px;
+    background-color: khaki;
+    vertical-align: top;
+}
+
+#main-third-ad {
+    float: left;
+    display: inline-block;
+    width: 350px;
+    height: 130px;
+    background-color: #555555;
 }
